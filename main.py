@@ -3,7 +3,7 @@ import pandas as pd
 import random as rd
 import smtplib 
 
-
+## 1. Ajout du contenu des fichiers dans un tableau
 data = []
 for i in range(1,4):
     with open(f"./letter_templates/letter_{i}.txt",'r') as file:
@@ -12,18 +12,20 @@ for i in range(1,4):
         data.append(text)
         
        
-# 1. Update the birthdays.csv
+# 2. lecture du fichiers birthdays.csv avec pandas
 
 pd = pd.read_csv('birthdays.csv')
 print(pd)
 
-# 2. Check if today matches a birthday in the birthdays.csv
+# 3. importation du module DataTime
 import datetime as dt
 dt = dt.datetime.now()
 
+# 4. Saisir l'email d'envoie
 my_email = "lonzigerard@gmail.com"
 password = "nmqorvkchuhtbpsc"
 
+# 5. verifier si la date corespond a la date d'aujourd'hui
 for (i,row) in pd.iterrows():
      if dt.day == row.day and dt.month == row.month:
          choice = rd.choice(data)
@@ -34,11 +36,6 @@ for (i,row) in pd.iterrows():
          connect.sendmail(from_addr=my_email, to_addrs= f"{row.email}", msg=f"Subject:Happy Birthday\n\n {message}" )
          
         
-
-# 3. If step 2 is true, pick a random letter from letter templates and replace the [NAME] with the person's actual name from birthdays.csv
-
-
-# 4. Send the letter generated in step 3 to that person's email address.
 
 
 
