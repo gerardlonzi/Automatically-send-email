@@ -22,8 +22,8 @@ import datetime as dt
 dt = dt.datetime.now()
 
 # 4. Saisir l'email d'envoie
-my_email = "lonzigerard@gmail.com"
-password = "nmqorvkchuhtbpsc"
+my_email = "entree une adresse email"
+password = "Activer la verification en deux etapes dans votre compte google ,cliquer sur choisir un appariels et saisir le code proposer"
 
 # 5. verifier si la date corespond a la date d'aujourd'hui
 for (i,row) in pd.iterrows():
